@@ -2,17 +2,22 @@
 
 import type React from "react"
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+export const metadata = {
+  title: "GitHub Issues Dashboard",
+  description: "Analyze GitHub repository issues with ease.",
+}
+
 import IssuesList from "@/components/issues-list"
 import IssuesMetrics from "@/components/issues-metrics"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import WeeklyChart from "@/components/weekly-chart"
-import { Loader2 } from "lucide-react"
-import { fetchRepositoryIssues } from "@/lib/github-api"
 import { processIssuesData } from "@/lib/data-processing"
+import { fetchRepositoryIssues } from "@/lib/github-api"
+import { Loader2 } from "lucide-react"
+import { useState } from "react"
 
 export default function Home() {
   const [repoInput, setRepoInput] = useState("")
